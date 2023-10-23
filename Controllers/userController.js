@@ -7,8 +7,6 @@ const getUsers = async (req, res) => {
     .catch(err => res.send(err));
 };
 
-
-
 //Create a new user
 const createUser = async (req, res) => {
   const user = new User(req.body);
@@ -23,13 +21,8 @@ const createUser = async (req, res) => {
 
 //UPDATE user
 const updateUser = async (req, res) => {
-  if (req.body.password) {
-    req.body.password = CryptoJS.AES.encrypt(
-      req.body.password,
-      process.env.PASS_SEC
-    ).toString();
-  }
-
+  
+   
   try {
     const updatedUser = await User.findByIdAndUpdate(
       req.params.id,
@@ -43,8 +36,6 @@ const updateUser = async (req, res) => {
     res.status(500).json(err);
   }
 };
-
-
 
 //delete user
 const deleteUser = async (req, res) => {
