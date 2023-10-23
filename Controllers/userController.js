@@ -1,4 +1,4 @@
-const User = require("../Models/User");
+const User = require("../Models/user");
 
 
 const getUsers = async (req, res) => {
@@ -11,14 +11,7 @@ const getUsers = async (req, res) => {
 
 
 const createUser = async (req, res) => {
-  const user = new User({
-    first_name: req.body.first_name,
-    last_name: req.body.last_name,
-    user_name: req.body.user_name,
-    email: req.body.email,
-    password: req.body.password,
-    createdAt: req.body.createdAt,
-  });
+  const user = new User(req.body);
 
   try {
     const savedUser = await user.save();
@@ -27,8 +20,6 @@ const createUser = async (req, res) => {
     res.status(500).json(err);
   }
 };
-
-
 
 
 

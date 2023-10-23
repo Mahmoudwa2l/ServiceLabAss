@@ -1,6 +1,7 @@
 
 const router = require("express").Router();
 const { getUsers,createUser} = require("./Controllers/userController");
+const { getAllProducts,createProduct,deleteProduct,getProduct,updateProduct} = require("./Controllers/productController");
 //const {} = require("./Controllers/productController");
 
 
@@ -21,16 +22,21 @@ router.delete("/users/delete",);
 router.put("/users/update",);
 
 //-----------------Products-----------------
+//Get single Product
+router.get("/product/:id", getProduct);
 //Get all Products
-
+router.get("/products", getAllProducts);
 
 //Create Product
+router.post("/product/create", createProduct);
 
 
 //Delete Product
+router.delete("/product/delete/:id",deleteProduct);
 
 
 //Update Product
+router.put("/product/update/:id", updateProduct);
 
 
 module.exports = router;
