@@ -21,6 +21,11 @@ router.delete("/users/delete",);
 //Upadate User
 router.put("/users/update",);
 
+//---------------------------------------------
+
+
+
+
 //-----------------Products-----------------
 //Get single Product
 router.get("/product/:id", getProduct);
